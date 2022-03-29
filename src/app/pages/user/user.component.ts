@@ -41,7 +41,6 @@ export class UserComponent implements OnInit {
   }
   deleteUser(id:any){
     this.service.deleteUser(id);
-    this.service.getUsers();
   }
   onSort({ column, direction }: SortEvent) {
     this.headers.forEach(header => {

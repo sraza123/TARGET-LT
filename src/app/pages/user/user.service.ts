@@ -87,7 +87,7 @@ export class DataTableService {
     totalRecords: 0
   };
 
-  constructor(private pipe: DecimalPipe, private http:HttpClient, private router:Router,) {
+  constructor(private pipe: DecimalPipe, private http:HttpClient, private router:Router) {
     this.tableData = this.tables$
     this.tableDataList = []
     this.getUsers()
@@ -130,11 +130,8 @@ export class DataTableService {
     })
   }
   deleteUser(id:number){
-   this.http.delete(environment.API_URL+'v1/users/'+id)
-      .subscribe(
-        (data: any) => {
-          this.router.navigate(['/users']);
-        })
+   return this.http.delete(environment.API_URL+'v1/users/'+id)
+      .subscribe((data:any)=>console.log('delete'))
   }
   getUserById(id:number){
     return this.http.get(environment.API_URL+'v1/users/'+id)

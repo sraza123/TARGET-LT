@@ -1,0 +1,92 @@
+<app-pagetitle [title]="edit ? 'Update User' :' Create New User'" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body p-4">
+        <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="firstName">First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" id="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" placeholder="Enter firstName">
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">Userame is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="lastName">Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" id="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" placeholder="Enter lastName">
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">lastName is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="taxId">Tax Id</label>
+                <input type="text" formControlName="taxId" class="form-control" id="taxId" [ngClass]="{ 'is-invalid': submitted && f.taxId.errors }" placeholder="Enter taxId">
+                <div *ngIf="submitted && f.taxId.errors" class="invalid-feedback">
+                  <div *ngIf="f.taxId.errors.required">taxId is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="text" formControlName="email" class="form-control" id="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Enter email">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">email is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="code">Code</label>
+                <input type="text" formControlName="code" class="form-control" id="code" [ngClass]="{ 'is-invalid': submitted && f.code.errors }" placeholder="Enter code">
+                <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                  <div *ngIf="f.code.errors.required">code is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="phone">Phone</label>
+                <input type="text" formControlName="phone" class="form-control" id="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" placeholder="Enter phone">
+                <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                  <div *ngIf="f.phone.errors.required">phone is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="publicKey">Public Key</label>
+                <input type="text" formControlName="publicKey" class="form-control" id="publicKey" [ngClass]="{ 'is-invalid': submitted && f.publicKey.errors }" placeholder="Enter publicKey">
+                <div *ngIf="submitted && f.publicKey.errors" class="invalid-feedback">
+                  <div *ngIf="f.publicKey.errors.required">publicKey is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="uuid">UUID</label>
+                <input type="text" formControlName="uuid" class="form-control" id="uuid" [ngClass]="{ 'is-invalid': submitted && f.uuid.errors }" placeholder="Enter uuid">
+                <div *ngIf="submitted && f.uuid.errors" class="invalid-feedback">
+                  <div *ngIf="f.uuid.errors.required">uuid is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary w-md">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

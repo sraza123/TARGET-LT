@@ -43,7 +43,6 @@ export class UsercreateComponent implements OnInit {
       this.edit = true
        this.http.get(environment.API_URL+'v1/users/'+this.id).subscribe((response:any)=>{
         if(response != null){
-          console.log(response)
           this.signupForm = this.formBuilder.group({
             username: response ? response.username : '',
             role:  response ? response.role : '',

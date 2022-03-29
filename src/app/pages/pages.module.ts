@@ -25,6 +25,8 @@ import { dataTableSortableDirective } from './user/user-sorable.directive';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsercreateComponent } from './user/usercreate/usercreate.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PersonsComponent } from './persons/persons.component';
+import {PersonsCreateComponent} from "./persons/persons-create.component";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     UserComponent,
     dataTableSortableDirective,
     UsercreateComponent,
+    PersonsComponent,
+    PersonsCreateComponent,
   ],
   imports: [
     CommonModule,
