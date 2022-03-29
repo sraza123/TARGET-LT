@@ -1,0 +1,61 @@
+<app-pagetitle [title]="edit ? 'Update User' :' Create New User'" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+{{edit}}
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body p-4">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control" id="username"
+                       [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                       placeholder="Enter username">
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                  <div *ngIf="f.username.errors.required">Userame is required</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="personId">PersonId</label>
+                <ng-select  formControlName="personId" id="personId" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                  <ng-option *ngFor="let user of users" [value]="user.id"> {{ user.person ? user.person.firstName : user.username }}</ng-option>
+                </ng-select>
+                <div *ngIf="submitted && f.personId.errors" class="invalid-feedback">
+                  <div *ngIf="f.personId.errors.required">personId is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="role">Role</label>
+                <select class="form-select" formControlName="role" id="role" [ngClass]="{ 'is-invalid': submitted && f.role.errors }">
+                  <option value="">Select Role</option>
+                  <option *ngFor="let role of selectValue" [value]="role.role">{{role.name}}</option>
+                </select>
+                <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                  <div *ngIf="f.role.errors.required">Role is required</div>
+                </div>
+              </div>
+              <div class="mb-3" *ngIf="!edit">
+                <label for="userpassword">Password</label>
+                <input type="password" formControlName="password"
+                       [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                       class="form-control" id="userpassword" placeholder="Enter password">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mt-4">
+              <button type="submit" class="btn btn-primary w-md">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

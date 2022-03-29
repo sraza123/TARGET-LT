@@ -1,0 +1,43 @@
+<ng-template #content role="document" let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Default Modal Heading</h5>
+    <button type="button" class="btn-close" aria-hidden="true"
+            (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <h5>Overflowing text to show scroll behavior</h5>
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light"
+            (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</ng-template>

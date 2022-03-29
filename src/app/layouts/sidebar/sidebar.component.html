@@ -1,0 +1,19 @@
+<div class="vertical-menu">
+  <ngx-simplebar class="h-100">
+    <div id="sidebar-menu">
+      <ul class="metismenu list-unstyled" id="side-menu">
+        <li><a [routerLink]="['/']" >Dashboard</a></li>
+        <ng-container>
+          <li>
+            <a href="javascript:void(0);" class="is-parent has-arrow mm-active mm-collapsed" aria-expanded="false">
+              <span>Users</span></a>
+            <ul aria-expanded="false" class="sub-menu">
+              <li><a [routerLink]="['/users']"  class="side-nav-link-ref">List</a></li>
+              <li><a [routerLink]="['/users/create']"  class="side-nav-link-ref">Create</a></li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </ngx-simplebar>
+</div>
