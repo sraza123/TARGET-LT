@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'users/:id/edit', component:UsercreateComponent },
   { path: 'persons', component:PersonsComponent },
   { path: 'persons/create', component:PersonsCreateComponent },
+  { path: 'persons/:id/edit', component:PersonsCreateComponent },
 ];
 
 @NgModule({

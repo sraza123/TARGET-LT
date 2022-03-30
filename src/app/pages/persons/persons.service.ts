@@ -15,4 +15,7 @@ export class PersonsService {
   createPersons(Person: Person) {
     return this.http.post(environment.API_URL+`v1/persons`, Person);
   }
+  updatePerson(id:number, person: Person) {
+    return this.http.put(environment.API_URL+'v1/persons/'+id, person);
+  }
 }

@@ -2,9 +2,9 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {first} from 'rxjs/operators';
 import {ActivatedRoute, Router} from "@angular/router";
-import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import { PersonsService} from "./persons.service";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -36,6 +36,27 @@ export class PersonsCreateComponent implements OnInit {
       { label: 'Persons', },
       { label: this.edit ? 'Update' : 'Create', active: true }
     ];
+    this.id = this.activeRoute.snapshot.params.id;
+    if(this.id) {
+      this.edit = true
+      this.http.get(environment.API_URL+'v1/persons/'+this.id).subscribe((response:any)=>{
+        if(response != null){
+          this.inputForm = this.formBuilder.group({
+            firstName: response ? response.firstName : '',
+            lastName: response ? response.lastName : '',
+            taxId: response ? response.taxId : '',
+            email: response ? response.email : '',
+            code: response ? response.code : '',
+            phone: response ? response.phone : '',
+            publicKey: response ? response.publicKey : '',
+            uuid: response ? response.uuid : '',
+          });
+        }
+      })
+    }else {
+      this.edit = false
+    }
+
     this.inputForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -46,6 +67,7 @@ export class PersonsCreateComponent implements OnInit {
       publicKey: ['', Validators.required],
       uuid: ['', Validators.required],
     });
+
   }
 
   get f() { return this.inputForm.controls; }
@@ -54,15 +76,27 @@ export class PersonsCreateComponent implements OnInit {
     if (this.inputForm.invalid) {
       return;
     } else {
-      this.service.createPersons(this.inputForm.value)
-        .pipe(first())
-        .subscribe(
-          (data: any) => {
-            this.router.navigate(['/users']);
-          },
-          (error: any) => {
-            this.error = error ? error : '';
-          });
+      if(!this.edit) {
+        this.service.createPersons(this.inputForm.value)
+          .pipe(first())
+          .subscribe(
+            (data: any) => {
+              this.router.navigate(['/persons']);
+            },
+            (error: any) => {
+              this.error = error ? error : '';
+            });
+      }else{
+        this.service.updatePerson(this.id, this.inputForm.value)
+          .pipe(first())
+          .subscribe(
+            (data: any) => {
+              this.router.navigate(['/persons']);
+            },
+            (error: any) => {
+              this.error = error ? error : '';
+            });
+      }
     }
   }
 
