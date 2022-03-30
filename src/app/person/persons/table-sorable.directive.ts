@@ -21,7 +21,7 @@ export interface SortEvent {
   }
 })
 
-export class personTableSortableDirective {
+export class dataTableSortableDirective2 {
 
   constructor() { }
 

@@ -19,6 +19,7 @@ import { ErrorInterceptor } from './core/helpers/error.interceptor';
 import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import {PersonModule} from "./person/person.module";
 
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
@@ -46,6 +47,7 @@ export function createTranslateLoader(http: HttpClient): any {
     BrowserModule,
     AppRoutingModule,
     PagesModule,
+    PersonModule,
     LayoutsModule,
     BrowserAnimationsModule,
     NgbModule,

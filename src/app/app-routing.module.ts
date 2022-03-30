@@ -7,6 +7,7 @@ import {RoleGuardGuard} from "./guards/role-guard.guard";
 const routes: Routes = [
   { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), canActivate: [AuthGuard,RoleGuardGuard] },
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard,RoleGuardGuard] },
+  { path: 'persons',component: LayoutComponent, loadChildren: () => import('./person/person.module').then(m => m.PersonModule), canActivate: [AuthGuard,RoleGuardGuard] },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) }
 ];
 
